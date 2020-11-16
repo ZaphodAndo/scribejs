@@ -7,7 +7,7 @@ class Scribe {
     this._datasets = datasets;
   }
 
-  randomiser(dataset) {
+  _randomiser(dataset) {
     const numOfValues = dataset.length;
     const selectedValue = Math.floor(Math.random() * Math.floor(numOfValues));
     const result = dataset[selectedValue];
@@ -27,7 +27,7 @@ class Scribe {
 
         for (const [key, value] of Object.entries(this._datasets)) {
           if (selectedDataset === key) {
-            word = this.randomiser(value);
+            word = this._randomiser(value);
           }
         }
       }
