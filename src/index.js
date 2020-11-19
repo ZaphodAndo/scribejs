@@ -38,9 +38,9 @@ class Scribe {
   }
 
   /**
-   * Takes a sentence containing datasets and randomises the parts specified.
-   * @param {string} sentence - The string containing datasets.
-   * @return {string} The new randomised sentence.
+   * Takes a sentence containing dataset references and randomises the parts specified.
+   * @param {string} sentence - The string that contains dataset references
+   * @return {string} The new randomised sentence with the dataset references replaced with randomised values from that dataset.
    */
   generator(sentence) {
     const words = sentence.split(" ");
