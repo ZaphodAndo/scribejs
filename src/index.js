@@ -1,10 +1,19 @@
 class Scribe {
   _datasets;
 
+  /**
+   * Initialise Scribe.
+   * @param {{}} datasets - An object that contains arrays which are datasets.
+   */
   constructor(datasets) {
     this._datasets = datasets;
   }
 
+  /**
+   * Takes a dataset and returns a value from the dataset.
+   * @param {Array<string>} dataset - The selected dataset.
+   * @return {string} The selected dataset value.
+   */
   _randomiser(dataset) {
     const numOfValues = dataset.length;
     const selectedValue = Math.floor(Math.random() * Math.floor(numOfValues));
@@ -13,6 +22,12 @@ class Scribe {
     return result;
   }
 
+  /**
+   * Takes a dataset and returns a value from the dataset.
+   * @param {string} selectedDataset - The selected dataset.
+   * @param {string} word - The current word from a sentence.
+   * @return {string} The selected dataset value.
+   */
   _findDataset(selectedDataset, word) {
     for (const [key, value] of Object.entries(this._datasets)) {
       if (selectedDataset === key) {
@@ -22,6 +37,11 @@ class Scribe {
     }
   }
 
+  /**
+   * Takes a sentence containing datasets and randomises the parts specified.
+   * @param {string} sentence - The string containing datasets.
+   * @return {string} The new randomised sentence.
+   */
   generator(sentence) {
     const words = sentence.split(" ");
     let result = "";
