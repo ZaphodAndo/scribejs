@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.3] - 19-11-2020
+
+### Added
+
+- Removed the test files from the published package
+
 ## [1.0.2] - 19-11-2020
 
 ### Added
