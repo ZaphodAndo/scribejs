@@ -1,14 +1,68 @@
-# scribejs 📝
+# ScribeJS 📝
 
-A package to generate random sentences.
+ScribeJS is a package that allows you to create randomly generated sentences by providing datasets of values and
+specifying which parts of a sentence you wish to randomise.
 
-## Notes
+## Syntax
 
-- Pass in sentence with defined places to add words.
-- Define what type the words should be e.g. place, object.
-- Have the ability to provide json with all of the datasets e.g. places, objects, people.
-- Takes all of this data and uses it to generate random sentences which it passes back to the user.
+### Defining datasets
 
-## Tech Memes
+All of your datasets should be arrays and the values that they contain should be strings.\
+These datasets should then all be placed within an object that can then be passed to ScribeJS to be used.
 
-- Convert sentence to string find modifiers and then find datasets that match the modifiers.
+Example:
+
+```json
+{
+  "animals": ["cat", "dog", "cow", "pig", "monkey"],
+  "names": ["Sylvan", "Kieran", "Tej", "Jon", "AJ"],
+  "places": ["London", "Birmingham", "Telford", "Liverpool"],
+  "objects": ["cup", "pen", "keyboard", "glass"]
+}
+```
+
+### Defining datasets in sentences
+
+To specify what words in a sentence you wish to randomise and which dataset they should use you simply write the name of
+your dataset like this: `|animals|` and embed it into the sentence where ever you want it to generate a word from that
+dataset.
+
+Example in sentence: `Hello my name is |names|`
+
+## API
+
+`generator(sentence: string): string`
+
+- Takes in a sentence that contains dataset references
+- Returns the sentence with the dataset references replaced with randomised values from that dataset.
+
+## Example
+
+The example below shows how you might implement ScribeJS:
+
+```javascript
+// Import the package into our JS file.
+import Scribe from "scribejs";
+
+// Define an array with datasets that we want to use.
+const datasets = {
+  animal: ["cat", "dog", "cow", "pig", "monkey"],
+  person: ["Sylvan", "Kieran", "Tej", "Jon", "AJ"]
+};
+
+// Initalise ScribeJS and pass in the datasets.
+const scribe = new Scribe(datasets);
+
+// Call the generator function and pass in the sentence we want to randomise.
+const result = scribe.generator("|person| went to the park. At the park they saw a |animal|!");
+```
+
+Potential outcomes for the example above include:
+
+```
+Sylvan went to the park. At the park he saw a cat!
+Kieran went to the park. At the park he saw a dog!
+AJ went to the park. At the park he saw a cow!
+Sylvan went to the park. At the park he saw a monkey!
+ect...
+```
