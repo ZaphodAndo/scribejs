@@ -1,5 +1,3 @@
-// Fix issue with grammar messing up the parsing.
-
 class Scribe {
   _datasets;
 
@@ -15,6 +13,15 @@ class Scribe {
     return result;
   }
 
+  _findDataset(selectedDataset, word) {
+    for (const [key, value] of Object.entries(this._datasets)) {
+      if (selectedDataset === key) {
+        word = this._randomiser(value);
+        return word;
+      }
+    }
+  }
+
   generator(sentence) {
     const words = sentence.split(" ");
     let result = "";
@@ -23,12 +30,16 @@ class Scribe {
       let word = words[i];
 
       if (word.match(/\|(.*?)\|/gm)) {
-        const selectedDataset = word.replace(/\|/g, "");
+        let selectedDataset = word.replace(/\|/g, "");
 
-        for (const [key, value] of Object.entries(this._datasets)) {
-          if (selectedDataset === key) {
-            word = this._randomiser(value);
-          }
+        const wordArray = selectedDataset.split(/\s*\b\s*/);
+
+        if (wordArray.length > 1) {
+          selectedDataset = wordArray[0];
+          word = this._findDataset(selectedDataset, word);
+          word = word + wordArray[1];
+        } else {
+          word = this._findDataset(selectedDataset, word);
         }
       }
 
