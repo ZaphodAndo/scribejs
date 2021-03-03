@@ -1,6 +1,6 @@
-# ScribeJS 📝
+# Scribe 📝
 
-ScribeJS is a package that allows you to create randomly generated sentences by providing datasets of values and
+Scribe is a package that allows you to create randomly generated sentences by providing datasets of values and
 specifying which parts of a sentence you wish to randomise.
 
 ## Syntax
@@ -42,7 +42,7 @@ The example below shows how you might implement ScribeJS:
 
 ```javascript
 // Import the package into our JS file.
-import Scribe from "scribejs";
+import Scribe from "scribe";
 
 // Define an array with datasets that we want to use.
 const datasets = {
@@ -50,7 +50,7 @@ const datasets = {
   person: ["Sylvan", "Kieran", "Tej", "Jon", "AJ"]
 };
 
-// Initalise ScribeJS and pass in the datasets.
+// Initalise Scribe and pass in the datasets.
 const scribe = new Scribe(datasets);
 
 // Call the generator function and pass in the sentence we want to randomise.

@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.4] - 03-03-2021
+
+### Changed
+
+- Changed package name to Scribe.
+- Updated README to reflect new name.
+
 ## [1.0.3] - 19-11-2020
 
 ### Added

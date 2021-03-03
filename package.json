@@ -1,6 +1,6 @@
 {
-  "name": "@_zaphod/scribejs",
-  "version": "1.0.3",
+  "name": "@zaphodando/scribe",
+  "version": "1.0.4",
   "description": "A package to procedurally generate sentences.",
   "main": "src/index.js",
   "scripts": {
